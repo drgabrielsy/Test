@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr.Me Home</title>
+    <!-- Font Awesome link for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right, #e0c3fc, #8ec5fc);
+            color: white;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            width: 420px;
+            max-width: 90%;
+            animation: pulse 5s infinite alternate;
+        }
+        h1 {
+            margin-bottom: 25px;
+            font-size: 32px;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        li {
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+            color: #fff;
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            padding: 15px 20px;
+            border-radius: 25px;
+            transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            font-weight: 500;
+        }
+        a:hover {
+            background: linear-gradient(135deg, #0056b3, #007bff);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px);
+        }
+        .icon {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        a:hover .icon {
+            transform: scale(1.2);
+            color: #ffeb3b;
+        }
+        @keyframes pulse {
+            0% { background-color: rgba(255, 255, 255, 0.1); }
+            100% { background-color: rgba(255, 255, 255, 0.2); }
+        }
+        .comment {
+            margin-top: 20px;
+            font-size: 18px;
+            font-style: italic;
+            color: #ffeb3b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>BI-Toetsen</h1>
+        <ul>
+            <li><a href="https://qr2z.sharepoint.com/sites/BI-TA" target="_blank"><i class="fas fa-share-alt icon"></i> My SharePoint</a></li>
+            <li><a href="http://localhost/M/BI-Basis.html" target="_blank"><i class="fas fa-medkit icon"></i> Basis Medisch</a></li>
+            <li><a href="http://localhost/M/BI-THK1.html" target="_blank"><i class="fas fa-tooth icon"></i> THK1</a></li>
+            <li><a href="http://localhost/M/BI-THK2.html" target="_blank"><i class="fas fa-tooth icon"></i> THK2</a></li>
+            <li><a href="http://localhost/M/BI-Radiologie.html" target="_blank"><i class="fas fa-x-ray icon"></i> Radio</a></li>
+            <li><a href="http://localhost/M/BI-Statistiek.html" target="_blank"><i class="fas fa-chart-bar icon"></i> Statistiek</a></li>
+        </ul>
+        <div class="comment" id="comment"></div>
+    </div>
+    <script>
+        const comments = [
+            "You clicked it! 🎉",
+            "Nice choice! 😄",
+            "Here we go! 🚀",
+            "Clicked! Let's see what's next! 👀",
+            "Boom! You did it! 💥"
+        ];
+
+        document.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const randomComment = comments[Math.floor(Math.random() * comments.length)];
+                document.getElementById('comment').textContent = randomComment;
+                setTimeout(() => {
+                    window.open(link.href, '_blank');
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
