@@ -98,25 +98,6 @@
         </ul>
         <div class="comment" id="comment"></div>
     </div>
-    <script>
-        const comments = [
-            "Paly AWAY! 🎉",
-            "Nice choice! 😄",
-            "Here we go! 🚀",
-            "Clicked! Let's see what's next! 👀",
-            "Boom! You did it! 💥"
-        ];
-
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
-                const randomComment = comments[Math.floor(Math.random() * comments.length)];
-                document.getElementById('comment').textContent = randomComment;
-                setTimeout(() => {
-                    window.open(link.href, '_blank');
-                }, 1000);
-            });
-        });
-    </script>
+   
 </body>
 </html>
